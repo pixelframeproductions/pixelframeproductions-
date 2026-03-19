@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PixelFrame Productions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* INTRO SCREEN */
+.intro {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+}
+
+/* TOP TEXT */
+.top-text {
+  position: absolute;
+  top: 30px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+/* MAIN TITLE */
+.main-title {
+  font-size: 60px;
+  background: linear-gradient(90deg, #3b82f6, #9333ea);
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 2s forwards 1s;
+}
+
+/* BOTTOM TEXT */
+.bottom-text {
+  position: absolute;
+  bottom: 60px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: fadeIn 2s forwards 2.5s;
+}
+
+/* FOOTER RIGHT */
+.footer-right {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  text-align: right;
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeIn 2s forwards 3.5s;
+}
+
+.footer-right span {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* HERO AFTER INTRO */
+.hero {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.btn {
+  padding: 12px 25px;
+  border: none;
+  background: linear-gradient(45deg, #3b82f6, #9333ea);
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* SERVICES */
+.services {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.accordion {
+  width: 80%;
+  margin: auto;
+}
+
+.accordion-item {
+  background: rgba(255,255,255,0.05);
+  margin: 10px 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accordion-header {
+  padding: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  background: rgba(255,255,255,0.1);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: 0.4s;
+  padding: 0 15px;
+}
+
+.accordion-content p {
+  margin: 10px 0;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+  padding: 80px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="top-text">We Create, You Shine</div>
+
+  <div class="main-title">PIXELFRAME PRODUCTIONS</div>
+
+  <div class="bottom-text">Cut. Craft. Create.</div>
+
+  <div class="footer-right">
+    <span>SAM</span><br>
+    Founder of PixelFrame Productions
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Start Your Project</h1>
+  <button class="btn" onclick="whatsapp()">Contact Now</button>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <h2>Our Services</h2>
+
+  <div class="accordion">
+
+    <div class="accordion-item">
+      <div class="accordion-header">🎥 Video Production & Editing</div>
+      <div class="accordion-content">
+        <p>Short Film Editing</p>
+        <p>Cinematic Video Editing</p>
+        <p>YouTube Video Editing</p>
+        <p>Wedding & Event Highlights</p>
+        <p>Color Grading & Sound Design</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">📱 Social Media Content</div>
+      <div class="accordion-content">
+        <p>Reels Editing</p>
+        <p>Viral Content Editing</p>
+        <p>Social Media Post Design</p>
+        <p>Content Strategy</p>
+        <p>Page Handling</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">📸 Photography & Videography</div>
+      <div class="accordion-content">
+        <p>Professional Photoshoots</p>
+        <p>Event Photography</p>
+        <p>Cinematic Videography</p>
+        <p>Product Shoots</p>
+        <p>Portfolio Shoots</p>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header">🎨 Design & Branding</div>
+      <div class="accordion-content">
+        <p>Album Design</p>
+        <p>Thumbnail Design</p>
+        <p>Logo Design</p>
+        <p>Poster & Banner Design</p>
+        <p>Brand Identity Creation</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <h2>Contact Us</h2>
+  <button class="btn" onclick="whatsapp()">WhatsApp Us</button>
+  <br><br>
+  <button class="btn" onclick="email()">Send Email</button>
+</section>
+
+<script>
+// Accordion
+const headers = document.querySelectorAll(".accordion-header");
+
+headers.forEach(header => {
+  header.addEventListener("click", () => {
+    const content = header.nextElementSibling;
+    content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
+  });
+});
+
+// WhatsApp
+function whatsapp() {
+  window.open("https://wa.me/918792314377?text=Hello PixelFrame Productions,%0AName:%0AService Needed:%0ABudget:%0ADeadline:");
+}
+
+// Email
+function email() {
+  window.open("mailto:pixelframeproductionss@gmail.com");
+}
+</script>
+
+</body>
+</html>
